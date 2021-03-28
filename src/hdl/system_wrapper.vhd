@@ -45,7 +45,9 @@ entity system_wrapper is
     fixed_io_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
     fixed_io_ps_clk : inout STD_LOGIC;
     fixed_io_ps_porb : inout STD_LOGIC;
-    fixed_io_ps_srstb : inout STD_LOGIC
+    fixed_io_ps_srstb : inout STD_LOGIC;
+    pwm0_o : out STD_LOGIC;
+    pwm1_o : out STD_LOGIC
   );
 end system_wrapper;
 
@@ -86,7 +88,9 @@ architecture STRUCTURE of system_wrapper is
     ddr_dm : inout STD_LOGIC_VECTOR ( 3 downto 0 );
     ddr_dq : inout STD_LOGIC_VECTOR ( 31 downto 0 );
     ddr_dqs_n : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    ddr_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 )
+    ddr_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 );
+    pwm0_o : out STD_LOGIC;
+    pwm1_o : out STD_LOGIC
   );
   end component system;
   component IOBUF is
@@ -144,6 +148,8 @@ system_i: component system
       fixed_io_mio(53 downto 0) => fixed_io_mio(53 downto 0),
       fixed_io_ps_clk => fixed_io_ps_clk,
       fixed_io_ps_porb => fixed_io_ps_porb,
-      fixed_io_ps_srstb => fixed_io_ps_srstb
+      fixed_io_ps_srstb => fixed_io_ps_srstb,
+      pwm0_o => pwm0_o,
+      pwm1_o => pwm1_o
     );
 end STRUCTURE;
