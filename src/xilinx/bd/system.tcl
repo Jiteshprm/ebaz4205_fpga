@@ -626,8 +626,8 @@ proc create_root_design { parentCell } {
   connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins axi_timer_0/s_axi_aresetn] [get_bd_pins axi_timer_1/s_axi_aresetn] [get_bd_pins proc_sys_reset_0/peripheral_aresetn]
 
   # Create address segments
-  assign_bd_address -offset 0x42800000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_timer_0/S_AXI/Reg] -force
-  assign_bd_address -offset 0x42810000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_timer_1/S_AXI/Reg] -force
+  assign_bd_address -offset 0x43C00000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_timer_0/S_AXI/Reg] -force
+  assign_bd_address -offset 0x43C00000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_timer_1/S_AXI/Reg] -force
 
   # Restore current instance
   current_bd_instance $oldCurInst
